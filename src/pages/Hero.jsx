@@ -22,13 +22,13 @@ const Hero = ({ pokeData, loading }) => {
         <p className="text-lg">{description}</p>
       </div>
       <div className="flex items-center mt-6 justify-center">
-        <div className="relative ">
+        <div className="relative">
           <input
             type="text"
             placeholder="Search"
-            className={`pl-12 pr-4 py-3 rounded-full text-gray-600 border-2  w-[400px] focus:outline-none focus:ring-2 focus:ring-red-400`}
+            className="pl-12 pr-4 py-3 rounded-full text-gray-600 border-2 w-full focus:outline-none focus:ring-2 focus:ring-red-400 sm:w-96"
           />
-          <button className={`ml-2 px-5 py-4 rounded-full bg-red-500 text-white absolute right-2`}>
+          <button className="ml-2 px-5 py-4 rounded-full bg-red-500 text-white absolute right-2 top-1/2 transform -translate-y-1/2">
             <FaSearch size={16} />
           </button>
         </div>

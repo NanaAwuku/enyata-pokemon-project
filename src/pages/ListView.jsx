@@ -37,7 +37,7 @@ const ListView = ({
 
   const handlePageSizeChange = (e) => {
     setPageSize(parseInt(e.target.value));
-    setCurrentPage(0); // Reset the current page when the page size changes
+    setCurrentPage(0); 
   };
 
   const filteredData = pokeData.filter((pokemon) =>

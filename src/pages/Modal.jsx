@@ -28,7 +28,7 @@ const Modal = ({ pokemon, closeModal }) => {
         `https://pokeapi.co/api/v2/type/${types[0].type.name}`
       );
       const data = await response.json();
-      setSimilarPokemon(data.pokemon.slice(0, 2)); // Fetching only two similar Pokémon
+      setSimilarPokemon(data.pokemon.slice(0, 2)); 
     } catch (error) {
       console.log("Error fetching similar Pokémon:", error);
     }
@@ -188,7 +188,7 @@ const Modal = ({ pokemon, closeModal }) => {
   );
 };
 
-// Helper function to get emoji for a given Pokémon type
+
 const getEmojiForType = (type) => {
   switch (type) {
     case "grass":

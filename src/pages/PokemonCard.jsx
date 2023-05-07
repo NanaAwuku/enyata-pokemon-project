@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Modal from "./Modal";
 
-// Define a mapping of type names to emojis
 const typeEmojis = {
   normal: "⚪️",
   fire: "🔥",
