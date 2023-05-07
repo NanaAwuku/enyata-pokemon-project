@@ -1,4 +1,4 @@
-import PokemonCard from "../components/card";
+import PokemonCard from "./PokemonCard";
 import { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import ReactPaginate from "react-paginate";
@@ -122,15 +122,15 @@ const ListView = ({
                 <ReactPaginate
                   pageCount={pageCount}
                   marginPagesDisplayed={0}
-                  pageRangeDisplayed={5}
+                  pageRangeDisplayed={2}
                   onPageChange={handlePageChange}
                   containerClassName="pagination"
                   pageClassName="px-2 py-1 rounded"
                   activeLinkClassName="bg-red-600 p-2"
                   previousClassName="px-2 py-1 rounded"
                   nextClassName="px-2 py-1 rounded"
-                  previousLabel={"Prev"}
-                  nextLabel={"Next"}
+                  previousLabel={"<"}
+                  nextLabel={">"}
                   breakClassName={"px-2 py-1"}
                   breakLinkClassName={"text-red-500"}
                   disabledClassName={"text-gray-400"}

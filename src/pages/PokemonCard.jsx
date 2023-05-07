@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Modal from "../pages/Modal";
+import Modal from "./Modal";
 
 // Define a mapping of type names to emojis
 const typeEmojis = {

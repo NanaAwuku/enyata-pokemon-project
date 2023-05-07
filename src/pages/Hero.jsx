@@ -16,7 +16,7 @@ const Hero = ({ pokeData, loading }) => {
         <img src={heroImage} alt="Hero Image" className="w-62 h-[200px]" />
       )}
       <div className="text-center">
-        <h1 className={`text-4xl font-bold ${theme.color}`}>
+        <h1 className={`text-4xl font-bold `}>
           Poké<span className="text-red-500">book</span>
         </h1>
         <p className="text-lg">{description}</p>
@@ -26,15 +26,15 @@ const Hero = ({ pokeData, loading }) => {
           <input
             type="text"
             placeholder="Search"
-            className={`pl-12 pr-4 py-3 rounded-full text-gray-600 border-2 ${theme.borderColor} w-[400px] focus:outline-none focus:ring-2 focus:ring-red-400`}
+            className={`pl-12 pr-4 py-3 rounded-full text-gray-600 border-2  w-[400px] focus:outline-none focus:ring-2 focus:ring-red-400`}
           />
-          <button className={`ml-2 px-5 py-4 rounded-full ${theme.backgroundColor} text-white absolute right-2`}>
+          <button className={`ml-2 px-5 py-4 rounded-full bg-red-500 text-white absolute right-2`}>
             <FaSearch size={16} />
           </button>
         </div>
       </div>
 
-      <Link to="/list" className={`mt-6  underline hover:${theme.hoverColor}`}>
+      <Link to="/list" className={`mt-6  underline hover:`}>
         View More
       </Link>
     </div>
