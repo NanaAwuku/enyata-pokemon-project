@@ -6,71 +6,46 @@ import ListView from "./pages/ListView";
 
 function App() {
   const [pokeData, setPokeData] = useState([]);
-  const [loading, setIsLoading] = useState(true);
-  const [url, setUrl] = useState("https://pokeapi.co/api/v2/pokemon/");
-  const [nextUrl, setNextUrl] = useState();
-  const [prevUrl, setPrevUrl] = useState();
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selectedTheme, setSelectedTheme] = useState("light");
 
-  const fetchPokeData = async (fetchUrl) => {
+  const fetchPokeData = async (url) => {
     try {
-      setIsLoading(true);
-      const res = await axios.get(fetchUrl);
-      setNextUrl(res.data.next);
-      setPrevUrl(res.data.previous);
-      getPokeItem(res.data.results);
-      setIsLoading(false);
-    } catch (error) {
-      setError("An error occurred while fetching Pokémon data.");
-      setIsLoading(false);
-    }
-  };
+      const res = await axios.get(url);
+      const { results, next } = res.data;
 
-  const getPokeItem = async (results) => {
-    try {
       const dataPromises = results.map((item) => axios.get(item.url));
       const dataResponses = await Promise.all(dataPromises);
-      const pokeData = dataResponses.map((response) => response.data);
-      setPokeData((state) => [...state, ...pokeData]);
+      const pokemonData = dataResponses.map((response) => response.data);
+
+      setPokeData((prevData) => [...prevData, ...pokemonData]);
+
+      if (next) {
+        fetchPokeData(next);
+      } else {
+        setLoading(false);
+      }
     } catch (error) {
-      setError("An error occurred while fetching Pokémon details.");
-    }
-  };
-
-  const handleNextPage = () => {
-    if (nextUrl) {
-      setUrl(nextUrl);
-    }
-  };
-
-  const handlePreviousPage = () => {
-    if (prevUrl) {
-      setUrl(prevUrl);
+      setError("An error occurred while fetching Pokémon data.");
+      setLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchPokeData(url);
-  }, [url]);
+    fetchPokeData("https://pokeapi.co/api/v2/pokemon?limit=100");
+  }, []);
 
   return (
     <>
       <Routes>
         <Route
           path="/"
-          element={<Hero pokeData={pokeData} loading={loading} />}
+          element={<Hero pokeData={pokeData} loading={loading} selectedTheme={selectedTheme} />}
         />
         <Route
           path="/list"
-          element={
-            <ListView
-              pokeData={pokeData}
-              loading={loading}
-              onNextPage={handleNextPage}
-              onPreviousPage={handlePreviousPage}
-              error={error}
-            />
-          }
+          element={<ListView pokeData={pokeData} loading={loading} error={error} selectedTheme={selectedTheme} setSelectedTheme={setSelectedTheme} />}
         />
       </Routes>
     </>

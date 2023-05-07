@@ -38,19 +38,26 @@ const PokemonCard = ({ pokemon }) => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-4 flex flex-col items-center relative">
-      <img src={sprites.front_default} alt={name} className="w-32 h-32 mb-4" />
-      <h3 className="text-lg font-bold text-gray-900">{name}</h3>
+    <div className=" shadow-md p-4 flex flex-col items-center m-3 relative rounded-xl" >
+      <div className="bg-gray-200 flex justify-center w-full h-[150px] rounded-xl pb-20 mb-2 items-center">
+        <img
+          src={sprites.front_default}
+          alt={name}
+          className="w-[200px] h-[240px] mb-4"
+        />
+      </div>
+
+      <h3 className="text-lg font-bold mb-3 capitalize text-gray-900">{name}</h3>
       <div className="flex mt-2">
         {types.map((type) => (
           <span
             key={type.slot}
-            className="text-sm text-gray-700 bg-gray-200 px-2 py-1 rounded-full mr-2"
+            className="text-sm text-gray-700 bg-gray-200 px-2 py-1 capitalize rounded-full mr-2"
           >
             {typeEmojis[type.type.name]} {type.type.name}
           </span>
         ))}
-        <div className="w-full h-full bg-slate-400 absolute bg-opacity-40 top-0 left-0 z-[5] hidden group-hover:block ">
+        <div className="w-full h-full bg-black inset-0 absolute bg-opacity-20 top-0 left-0 z-[5] hidden group-hover:block rounded-xl ">
           <div className="w-full h-full flex items-center justify-center">
             <button
               onClick={() => showModalHandler(id)}
@@ -58,7 +65,7 @@ const PokemonCard = ({ pokemon }) => {
             >
               See Details
             </button>
-          </div>
+          </div>               
         </div>
       </div>
       {showModal && <Modal closeModal={closeModal} pokemon={pokemon} />}
