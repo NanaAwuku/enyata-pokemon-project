@@ -2,11 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { useTheme } from "react-jss";
+import SearchBar from "../components/home/SearchBar";
 
 const Hero = ({ pokeData, loading }) => {
   const heroImage =
     pokeData.length > 0 ? pokeData[16].sprites.front_default : "";
-  const description = "Explore the amazing world of Pokémon.";
+  const description = "Largest Pokémon index with information about every Pokemon you can think of. ";
 
   const theme = useTheme();
 
@@ -15,23 +16,14 @@ const Hero = ({ pokeData, loading }) => {
       {heroImage && (
         <img src={heroImage} alt="Hero Image" className="w-62 h-[200px]" />
       )}
-      <div className="text-center">
+      <div className="text-center sm:w-96 mb-5  flex-wrap">
         <h1 className={`text-4xl font-bold `}>
           Poké<span className="text-red-500">book</span>
         </h1>
         <p className="text-lg">{description}</p>
       </div>
       <div className="flex items-center mt-6 justify-center">
-        <div className="relative">
-          <input
-            type="text"
-            placeholder="Search"
-            className="pl-12 pr-4 py-3 rounded-full text-gray-600 border-2 w-full focus:outline-none focus:ring-2 focus:ring-red-400 sm:w-96"
-          />
-          <button className="ml-2 px-5 py-4 rounded-full bg-red-500 text-white absolute right-2 top-1/2 transform -translate-y-1/2">
-            <FaSearch size={16} />
-          </button>
-        </div>
+        <SearchBar />
       </div>
 
       <Link to="/list" className={`mt-6  underline hover:`}>

@@ -2,7 +2,7 @@ import PokemonCard from "./PokemonCard";
 import { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import ReactPaginate from "react-paginate";
-import ThemeModal from "../components/ThemeModal";
+import ThemeModal from "../components/modals/ThemeModal";
 import { Link } from "react-router-dom";
 
 const ListView = ({

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import axios from "axios";
-import Hero from "./pages/Hero";
+import Hero from "./pages/Home";
 import ListView from "./pages/ListView";
 
 function App() {
