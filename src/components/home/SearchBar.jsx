@@ -12,7 +12,7 @@ const SearchBar = () => {
       />
       <Link to="/list">
         <button className="ml-2 px-5 py-4 rounded-full bg-red-500 text-white absolute right-2 top-1/2 transform -translate-y-1/2">
-          <FaSearch size={20} />
+          <FaSearch size={17} />
         </button>
       </Link>
     </div>
