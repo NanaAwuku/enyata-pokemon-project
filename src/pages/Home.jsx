@@ -13,7 +13,7 @@ const Hero = ({ pokeData, loading }) => {
   const theme = useTheme();
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
+    <div className="flex flex-col items-center justify-center min-h-screen m-10">
       {loading && <Spinner />}
       {heroImage && (
         <img src={heroImage} alt="Hero Image" className="w-62 h-[200px]" />
