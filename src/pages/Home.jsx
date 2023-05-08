@@ -6,7 +6,7 @@ import Spinner from "../components/listview/Spinner";
 
 const Hero = ({ pokeData, loading }) => {
   const heroImage =
-    pokeData.length > 0 ? pokeData[10].sprites.front_default : "";
+    pokeData.length > 0 ? pokeData[16].sprites.front_default : "";
   const description =
     "Explore the vast world of Pokémon with the largest collection of information about every Pokémon you can think of.";
 
