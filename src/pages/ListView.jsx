@@ -4,6 +4,8 @@ import { FaSearch } from "react-icons/fa";
 import ReactPaginate from "react-paginate";
 import ThemeModal from "../components/modals/ThemeModal";
 import { Link } from "react-router-dom";
+import Spinner from "../components/listview/Spinner";
+import SearchBar from "../components/home/SearchBar";
 
 const ListView = ({
   pokeData,
@@ -84,18 +86,7 @@ const ListView = ({
             </h3>
           </div>
           <div className="hidden sm:flex items-center">
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Search"
-                className="px-4 py-2 rounded-full text-gray-600 border-2 w-[450px] focus:outline-none focus:ring-2 focus:ring-red-400"
-                value={searchTerm}
-                onChange={handleSearch}
-              />
-              <button className="ml-2 px-4 py-3 rounded-full bg-red-500 text-white absolute right-2">
-                <FaSearch size={20} />
-              </button>
-            </div>
+            <SearchBar/>
           </div>
           <div className="flex items-center">
             <button
@@ -107,7 +98,7 @@ const ListView = ({
       </header>
       <div className="container mx-auto py-8">
         {loading ? (
-          <h1>Loading...</h1>
+          <Spinner/>
         ) : error ? (
           <h1>{error}</h1>
         ) : filteredData.length ? (

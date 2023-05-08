@@ -37,12 +37,12 @@ const PokemonCard = ({ pokemon }) => {
   };
 
   return (
-    <div className=" shadow-md p-4 flex flex-col items-center m-3 relative rounded-xl" >
-      <div className="bg-gray-200 flex justify-center w-full h-[150px] rounded-xl pb-20 mb-2 items-center">
+    <div className="shadow-md p-4 flex flex-col items-center m-3 relative rounded-xl">
+      <div className="bg-gray-200 w-full h-[200px] rounded-xl mb-4">
         <img
           src={sprites.front_default}
           alt={name}
-          className="w-[200px] h-[240px] mb-4"
+          className="w-full h-full object-contain"
         />
       </div>
 
@@ -56,15 +56,15 @@ const PokemonCard = ({ pokemon }) => {
             {typeEmojis[type.type.name]} {type.type.name}
           </span>
         ))}
-        <div className="w-full h-full bg-black inset-0 absolute bg-opacity-20 top-0 left-0 z-[5] hidden group-hover:block rounded-xl ">
+        <div className="w-full h-full bg-black inset-0 absolute bg-opacity-20 top-0 left-0 z-[5] hidden group-hover:block rounded-xl">
           <div className="w-full h-full flex items-center justify-center">
             <button
               onClick={() => showModalHandler(id)}
-              className="text-white bg-headingColor hover:bg-smallTextColor py-2 px-4 rounded-[8px] font-[500] ease-in duration-200 "
+              className="text-white bg-headingColor hover:bg-smallTextColor py-2 px-4 rounded-[8px] font-[500] ease-in duration-200"
             >
               See Details
             </button>
-          </div>               
+          </div>
         </div>
       </div>
       {showModal && <Modal closeModal={closeModal} pokemon={pokemon} />}
